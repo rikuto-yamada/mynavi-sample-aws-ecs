@@ -1,6 +1,6 @@
 # Dockerfile for sample service using embedded tomcat server
 
-FROM centos:centos7
+FROM alpine:3.14
 MAINTAINER debugroom
 RUN yum install -y \
        java-1.8.0-openjdk \
@@ -19,4 +19,4 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
 EXPOSE 80
 
-CMD java -jar -Dspring.profiles.active=production /usr/bin/mynavi-sample-aws-ecs/backend-for-frontend/target/mynavi-sample-aws-ecs-backend-for-frontend-0.0.1-SNAPSHOT.jar
+CMD java -jar -Dspring.profiles.active=production /var/local/mynavi-sample-aws-ecs/backend-for-frontend/target/mynavi-sample-aws-ecs-backend-for-frontend-0.0.1-SNAPSHOT.jar
